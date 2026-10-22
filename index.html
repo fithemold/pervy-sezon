@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Первый сезон — гид по выбору первого мотоцикла</title>
+  <meta name="description"
+    content="Пошаговый путеводитель для новичка: права, бюджет, выбор класса, покупка и первый сезон.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/theme.js"></script>
+</head>
+
+<body>
+
+  <header class="nav" id="nav">
+    <a class="logo" href="#top">Первый сезон</a>
+    <nav>
+      <a href="#road">Дорожная карта</a>
+      <a href="#budget">Бюджет</a>
+      <a href="#classes">Классы</a>
+      <a href="#r6">Yamaha R6</a>
+      <a href="#check">Чек-лист</a>
+      <a href="community.html">Сообщество</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="top">
+    <img class="hero-media" id="heroImg" src="https://images.unsplash.com/photo-1558981806-ec527fa84c39?w=1800&q=80"
+      alt="Мотоцикл на дороге" onerror="this.style.display='none'">
+    <div class="hero-shade"></div>
+    <div class="hero-text">
+      <h1><span>От мечты</span><span>до первого</span><span>километра</span></h1>
+      <p>Пошаговый путеводитель для тех, кто выбирает первый мотоцикл. Без ошибок новичка и без снобизма.</p>
+      <a class="btn" href="step.html?s=1">Начать с шага 1</a>
+    </div>
+    <div class="stats">
+      <div><b data-count="5">0</b> шагов до первого сезона</div>
+      <div><b data-count="1000">0</b> км — первая тренировка</div>
+      <div><b data-count="12">0</b> чек-листов и шпаргалок</div>
+    </div>
+  </section>
+
+  <section class="sec" id="road">
+    <h2>Дорожная карта новичка</h2>
+    <p class="lead">Нажми на любой шаг, и откроется подробная страница с советами и чек-листами. Мотоциклист на дороге
+      едет вместе с тобой.</p>
+    <div class="roadline">
+      <svg viewBox="0 0 1000 120" preserveAspectRatio="none" aria-hidden="true">
+        <path id="roadPath" d="M0 80 C 150 10, 300 110, 500 60 S 850 10, 1000 60" />
+        <path id="roadDash" d="M0 80 C 150 10, 300 110, 500 60 S 850 10, 1000 60" />
+      </svg>
+      <div class="rider" id="rider">🏍️</div>
+    </div>
+    <div class="steps" id="steps">
+      <a class="step" href="step.html?s=1"><i>1</i><b>Права и обучение</b><small>Категория A, мотошкола,
+          экипировка</small><em>Открыть шаг →</em></a>
+      <a class="step" href="step.html?s=2"><i>2</i><b>Бюджет</b><small>Из чего складывается первый
+          сезон</small><em>Открыть шаг →</em></a>
+      <a class="step" href="step.html?s=3"><i>3</i><b>Выбор класса</b><small>Какой мотоцикл подойдёт
+          новичку</small><em>Открыть шаг →</em></a>
+      <a class="step" href="step.html?s=4"><i>4</i><b>Покупка и проверка</b><small>Осмотр, документы,
+          торг</small><em>Открыть шаг →</em></a>
+      <a class="step" href="step.html?s=5"><i>5</i><b>Первый сезон</b><small>Тренировки, ошибки,
+          безопасность</small><em>Открыть шаг →</em></a>
+    </div>
+    <p class="road-cta"><a class="btn" href="step.html?s=1">Начать с шага 1</a></p>
+  </section>
+
+  <section class="sec dark" id="budget">
+    <h2>Калькулятор первого сезона</h2>
+    <p class="lead">Сдвигай ползунки — увидишь реальную цену первого сезона, а не только цену мотоцикла.</p>
+    <div class="calc">
+      <div class="calc-in">
+        <label>Мотоцикл <output id="o1"></output><input type="range" id="r1" min="80000" max="600000" step="10000"
+            value="250000"></label>
+        <label>Экипировка <output id="o2"></output><input type="range" id="r2" min="20000" max="150000" step="5000"
+            value="60000"></label>
+        <label>Страховка <output id="o3"></output><input type="range" id="r3" min="3000" max="40000" step="1000"
+            value="12000"></label>
+        <label>Обслуживание <output id="o4"></output><input type="range" id="r4" min="5000" max="50000" step="1000"
+            value="15000"></label>
+        <label>Резерв на сюрпризы <output id="o5"></output><input type="range" id="r5" min="0" max="100000" step="5000"
+            value="25000"></label>
+      </div>
+      <div class="calc-out">
+        <span>Итого за первый сезон</span>
+        <strong id="total">0 ₽</strong>
+        <div class="split" id="split"></div>
+        <small>Резерв — не роскошь: у б/у мотоцикла почти всегда находится ещё одна работа.</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="classes">
+    <h2>Какой класс подойдёт новичку</h2>
+    <p class="lead">Не литровый спорт. Начни с лёгкого и понятного — и через сезон выбирать будешь уже ты, а не страх.
+    </p>
+    <div class="gallery">
+      <article class="card big">
+        <img src="https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?w=1000&q=80" alt="Нейкед"
+          onerror="this.remove()">
+        <div>
+          <h3>Нейкед 250–400 см³</h3>
+          <p>Прямая посадка, мягкий характер, простое обслуживание. Лучший старт для города.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?w=800&q=80" alt="Туристический"
+          onerror="this.remove()">
+        <div>
+          <h3>Тур-эндуро 250–400</h3>
+          <p>Высокая посадка, прощает ямы и ошибки.</p>
+        </div>
+      </article>
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1558980394-4c7c9299fe96?w=800&q=80" alt="Спорт"
+          onerror="this.remove()">
+        <div>
+          <h3>Спорт 300–400</h3>
+          <p>Для тех, кому важна динамика. Посадка жёстче.</p>
+        </div>
+      </article>
+      <article class="card wide">
+        <img src="https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=1200&q=80" alt="Дорога"
+          onerror="this.remove()">
+        <div>
+          <h3>До 150 000 ₽ · 150–300 000 ₽ · 300–500 000 ₽</h3>
+          <p>Подборки по бюджетам — по весу, посадке, мощности и цене обслуживания, без рекламы.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec dark r6" id="r6">
+    <div class="r6-in">
+      <div class="r6-img"><span>R6</span><img src="assets/yamaha-r6.jpg" alt="Красная Yamaha R6"
+          onerror="this.remove()"></div>
+      <div>
+        <h2>Yamaha R6: мечта в красном</h2>
+        <p>Легенда спортбайков. Красивая, быстрая, громкая. Но не первая: жёсткая посадка и резкий характер прощают мало
+          ошибок. Через пару сезонов — отличная цель.</p>
+        <ul class="specs">
+          <li><b>≈600 см³</b>рядная «четвёрка»</li>
+          <li><b>≈120 л.с.</b>зависит от года</li>
+          <li><b>≈190 кг</b>ориентир по массе</li>
+        </ul>
+        <a class="btn" href="step.html?s=3">Что взять вместо неё</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec soft" id="check">
+    <h2>Чек-лист осмотра б/у мотоцикла</h2>
+    <p class="lead">Отмечай пункты прямо на осмотре. Прогресс сохраняется в браузере.</p>
+    <a class="btn small dl" href="assets/checklist-osmotra.pdf" download>Скачать чек-лист (PDF)</a>
+    <div class="check-wrap">
+      <ul class="check" id="checkList"></ul>
+      <div class="ring"><svg viewBox="0 0 120 120">
+          <circle cx="60" cy="60" r="52" />
+          <circle id="ringFg" cx="60" cy="60" r="52" />
+        </svg><b id="ringTxt">0%</b></div>
+    </div>
+  </section>
+
+  <section class="sec" id="stories">
+    <h2>Мой первый сезон</h2>
+    <div class="stories">
+      <blockquote>
+        <p>Чуть не взял литровый спорт. Спасибо гиду: взял 300-кубовый нейкед и за сезон накатал 6000 км без единого
+          падения.</p><cite>Артём, Казань</cite>
+      </blockquote>
+      <blockquote>
+        <p>Чек-лист осмотра спас от мотоцикла с кривой рамой. Продавец сам удивился, что я знаю, куда смотреть.</p>
+        <cite>Лена, Екатеринбург</cite>
+      </blockquote>
+      <blockquote>
+        <p>Калькулятор показал, что на экипировку и резерв надо ещё 80 тысяч. Лучше узнать это до покупки.</p>
+        <cite>Дима, Новосибирск</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>
+    <b>Первый сезон</b>
+    <span>Мы тоже когда-то были новичками. Никакой рекламы «купи именно этот» — только честные критерии.</span>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>

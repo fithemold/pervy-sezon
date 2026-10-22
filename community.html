@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><script src="js/theme.js"></script><title>Сообщество — Первый сезон</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"></head>
+<body><header class="nav solid"><a class="logo" href="index.html">Первый сезон</a><nav><a href="index.html#road">Дорожная карта</a><a href="index.html#budget">Бюджет</a><a href="index.html#classes">Классы</a><a href="index.html#r6">Yamaha R6</a><a href="community.html">Сообщество</a></nav></header>
+<main class="page wide-page">
+  <a class="crumb" href="index.html">← На главную</a>
+  <h1>Сообщество</h1>
+  <p class="lead">Мотошколы и клубы по городам, ответы опытных райдеров и истории новичков.</p>
+  <h2>Мотошколы и клубы</h2>
+  <div class="chips" id="chips"></div>
+  <div id="map"></div>
+  <p class="note">Точки на карте — примеры. Замени их на реальные школы и клубы в массиве SCHOOLS в файле js/community.js.</p>
+  <h2 style="margin-top:50px">Вопрос — ответ</h2>
+  <div class="qa">
+    <details><summary>Можно ли начать сразу с 600 кубов?</summary><p>Технически можно, но риск ошибки выше. Начни с 250–400 см³ и через сезон решай, нужен ли тебе больше.</p></details>
+    <details><summary>Что важнее, шлем или куртка?</summary><p>Шлем. Но экипировка работает только вся вместе: шлем, перчатки, куртка, штаны, ботинки.</p></details>
+    <details><summary>Страшно ли ездить в городе?</summary><p>Сначала да. Тренируйся на площадке и тихих улицах, и страх превратится в внимательность.</p></details>
+    <details><summary>Как найти знакомых мотоциклистов?</summary><p>Загляни в местный клуб, на открытие сезона или в мотошколу. Новичкам там обычно рады.</p></details>
+  </div>
+  <h2>Мой первый сезон</h2>
+  <p class="lead">Хочешь поделиться своей историей? Расскажи, как прошёл твой первый сезон. Другие новички узнают, чего ждать.</p>
+  <form class="story" id="storyForm">
+    <label>Имя<input name="name" required maxlength="40" placeholder="Например, Лена"></label>
+    <label>Город<input name="city" maxlength="40" placeholder="Например, Казань"></label>
+    <label class="full">Твоя история<textarea name="story" required minlength="30" maxlength="1500" rows="6" placeholder="Какой мотоцикл выбрал, что было сложно, чему научился"></textarea></label>
+    <label class="full chk"><input type="checkbox" name="ok" required> Согласна, что историю можно опубликовать на сайте</label>
+    <button class="btn" type="submit">Отправить историю</button>
+    <p class="note" id="storyMsg" role="status"></p>
+  </form>
+  <a class="btn small" href="assets/checklist-osmotra.pdf" download>Скачать чек-лист осмотра (PDF)</a>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+<script src="js/community.js"></script>
+</body></html>
