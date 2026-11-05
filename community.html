@@ -1,34 +1,94 @@
 <!DOCTYPE html>
-<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="css/style.css"><script src="js/theme.js"></script><title>Сообщество — Первый сезон</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"></head>
-<body><header class="nav solid"><a class="logo" href="index.html">Первый сезон</a><nav><a href="index.html#road">Дорожная карта</a><a href="index.html#budget">Бюджет</a><a href="index.html#classes">Классы</a><a href="index.html#r6">Yamaha R6</a><a href="community.html">Сообщество</a></nav></header>
-<main class="page wide-page">
-  <a class="crumb" href="index.html">← На главную</a>
-  <h1>Сообщество</h1>
-  <p class="lead">Мотошколы и клубы по городам, ответы опытных райдеров и истории новичков.</p>
-  <h2>Мотошколы и клубы</h2>
-  <div class="chips" id="chips"></div>
-  <div id="map"></div>
-  <p class="note">Точки на карте — примеры. Замени их на реальные школы и клубы в массиве SCHOOLS в файле js/community.js.</p>
-  <h2 style="margin-top:50px">Вопрос — ответ</h2>
-  <div class="qa">
-    <details><summary>Можно ли начать сразу с 600 кубов?</summary><p>Технически можно, но риск ошибки выше. Начни с 250–400 см³ и через сезон решай, нужен ли тебе больше.</p></details>
-    <details><summary>Что важнее, шлем или куртка?</summary><p>Шлем. Но экипировка работает только вся вместе: шлем, перчатки, куртка, штаны, ботинки.</p></details>
-    <details><summary>Страшно ли ездить в городе?</summary><p>Сначала да. Тренируйся на площадке и тихих улицах, и страх превратится в внимательность.</p></details>
-    <details><summary>Как найти знакомых мотоциклистов?</summary><p>Загляни в местный клуб, на открытие сезона или в мотошколу. Новичкам там обычно рады.</p></details>
-  </div>
-  <h2>Мой первый сезон</h2>
-  <p class="lead">Хочешь поделиться своей историей? Расскажи, как прошёл твой первый сезон. Другие новички узнают, чего ждать.</p>
-  <form class="story" id="storyForm">
-    <label>Имя<input name="name" required maxlength="40" placeholder="Например, Лена"></label>
-    <label>Город<input name="city" maxlength="40" placeholder="Например, Казань"></label>
-    <label class="full">Твоя история<textarea name="story" required minlength="30" maxlength="1500" rows="6" placeholder="Какой мотоцикл выбрал, что было сложно, чему научился"></textarea></label>
-    <label class="full chk"><input type="checkbox" name="ok" required> Согласна, что историю можно опубликовать на сайте</label>
-    <button class="btn" type="submit">Отправить историю</button>
-    <p class="note" id="storyMsg" role="status"></p>
-  </form>
-  <a class="btn small" href="assets/checklist-osmotra.pdf" download>Скачать чек-лист осмотра (PDF)</a>
-</main>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-<script src="js/community.js"></script>
-</body></html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=Unbounded:wght@500;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Сообщество — Первый сезон</title>
+</head>
+
+<body>
+  <input type="checkbox" id="themeSwitch" class="sr" aria-label="Тёмная тема">
+  <header class="nav solid"><a class="logo" href="index.html">Первый сезон</a>
+    <nav><a href="index.html#road">Дорожная карта</a><a href="index.html#budget">Бюджет</a><a
+        href="index.html#classes">Классы</a><a href="index.html#r6">Yamaha R6</a><a href="community.html">Сообщество</a>
+    </nav><label class="tg" for="themeSwitch" aria-label="Сменить тему"><span class="m">🌙</span><span
+        class="s">☀️</span></label>
+  </header>
+  <main class="page wide-page">
+    <a class="crumb" href="index.html">← На главную</a>
+    <h1>Сообщество</h1>
+    <p class="lead">Мотошколы и клубы по городам, ответы опытных райдеров и истории новичков.</p>
+    <h2>Мотошколы и клубы</h2>
+    <div class="mapbox">
+      <div class="chips"><input type="radio" name="city" id="c0" class="sr" checked><label for="c0">Вся
+          страна</label><input type="radio" name="city" id="c1" class="sr"><label for="c1">Москва</label><input
+          type="radio" name="city" id="c2" class="sr"><label for="c2">Санкт-Петербург</label><input type="radio"
+          name="city" id="c3" class="sr"><label for="c3">Казань</label><input type="radio" name="city" id="c4"
+          class="sr"><label for="c4">Екатеринбург</label><input type="radio" name="city" id="c5" class="sr"><label
+          for="c5">Новосибирск</label><input type="radio" name="city" id="c6" class="sr"><label
+          for="c6">Краснодар</label></div>
+      <iframe id="all" src="https://www.openstreetmap.org/export/embed.html?bbox=20%2C43%2C100%2C68&amp;layer=mapnik"
+        title="Карта: Вся страна" loading="lazy"></iframe>
+      <iframe id="msk"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=37.3673%2C55.6358%2C37.8673%2C55.8758&amp;layer=mapnik&amp;marker=55.7558%2C37.6173"
+        title="Карта: Москва" loading="lazy"></iframe>
+      <iframe id="spb"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=30.0851%2C59.8143%2C30.5851%2C60.0543&amp;layer=mapnik&amp;marker=59.9343%2C30.3351"
+        title="Карта: Санкт-Петербург" loading="lazy"></iframe>
+      <iframe id="kzn"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=48.8564%2C55.6761%2C49.3564%2C55.9161&amp;layer=mapnik&amp;marker=55.7961%2C49.1064"
+        title="Карта: Казань" loading="lazy"></iframe>
+      <iframe id="ekb"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=60.3557%2C56.7189%2C60.8557%2C56.9589&amp;layer=mapnik&amp;marker=56.8389%2C60.6057"
+        title="Карта: Екатеринбург" loading="lazy"></iframe>
+      <iframe id="nsk"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=82.6857%2C54.8884%2C83.1857%2C55.1284&amp;layer=mapnik&amp;marker=55.0084%2C82.9357"
+        title="Карта: Новосибирск" loading="lazy"></iframe>
+      <iframe id="krd"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=38.7253%2C44.9155%2C39.2253%2C45.1555&amp;layer=mapnik&amp;marker=45.0355%2C38.9753"
+        title="Карта: Краснодар" loading="lazy"></iframe>
+    </div>
+    <p class="note">Точки на карте — примеры. Чтобы заменить их на реальные школы, поменяй координаты в адресах карт
+      (iframe) в этом файле.</p>
+    <h2 style="margin-top:50px">Вопрос — ответ</h2>
+    <div class="qa">
+      <details>
+        <summary>Можно ли начать сразу с 600 кубов?</summary>
+        <p>Технически можно, но риск ошибки выше. Начни с 250–400 см³ и через сезон решай, нужен ли тебе больше.</p>
+      </details>
+      <details>
+        <summary>Что важнее, шлем или куртка?</summary>
+        <p>Шлем. Но экипировка работает только вся вместе: шлем, перчатки, куртка, штаны, ботинки.</p>
+      </details>
+      <details>
+        <summary>Страшно ли ездить в городе?</summary>
+        <p>Сначала да. Тренируйся на площадке и тихих улицах, и страх превратится в внимательность.</p>
+      </details>
+      <details>
+        <summary>Как найти знакомых мотоциклистов?</summary>
+        <p>Загляни в местный клуб, на открытие сезона или в мотошколу. Новичкам там обычно рады.</p>
+      </details>
+    </div>
+    <h2>Мой первый сезон</h2>
+    <p class="lead">Хочешь поделиться своей историей? Расскажи, как прошёл твой первый сезон. Другие новички узнают,
+      чего ждать.</p>
+    <form class="story" action="mailto:urtican2007@gmail.com" method="post" enctype="text/plain">
+      <label>Имя<input name="name" required maxlength="40" placeholder="Например, Лена"></label>
+      <label>Город<input name="city" maxlength="40" placeholder="Например, Казань"></label>
+      <label class="full">Твоя история<textarea name="story" required minlength="30" maxlength="1500" rows="6"
+          placeholder="Какой мотоцикл выбрал, что было сложно, чему научился"></textarea></label>
+      <label class="full chk"><input type="checkbox" name="ok" required> Согласна, что историю можно опубликовать на
+        сайте</label>
+      <button class="btn" type="submit">Отправить историю</button>
+      <p class="note">После нажатия откроется письмо в почтовой программе. Там нужно нажать «Отправить».</p>
+    </form>
+    <a class="btn small" href="assets/checklist-osmotra.pdf" download>Скачать чек-лист осмотра (PDF)</a>
+  </main>
+</body>
+
+</html>
